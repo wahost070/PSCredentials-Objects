@@ -1,0 +1,6 @@
+$username = 'COMPUTER\username'
+$password = 'password'
+$securepw = ConvertTo-SecureString $password -AsPlainText -Force 
+$cred = New-Object Management.Automation.PSCredential ($username, $securepw)
+$command = { #COMMAND }
+Invoke-Command -Computer localhost -Credential $cred -ScriptBlock $command
